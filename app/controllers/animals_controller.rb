@@ -20,7 +20,7 @@ class AnimalsController < ApplicationController
     end
 
     def update
-        animal - Animal.find(params[:id])
+        animal = Animal.find(params[:id])
         animal.update(animal_params)
         if animal.valid?
             render json: animal
@@ -40,6 +40,6 @@ class AnimalsController < ApplicationController
 
     private
     def animal_params
-        params.require(:guitar).permit(:common_name, :scientific_binomial)
+        params.require(:animal).permit(:common_name, :scientific_binomial)
     end
 end
